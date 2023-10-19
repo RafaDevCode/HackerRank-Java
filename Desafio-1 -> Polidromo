@@ -1,0 +1,28 @@
+// Desafio Java String Reverse 
+//=============================
+//  Explicações do desafio 
+/* Um palíndromo é uma palavra, frase, número ou outra sequência de caracteres que é lida de trás para frente ou para frente.
+   Dada uma string, imprima Sim se for um palíndromo, imprima Não caso contrário. */
+
+
+public class Solution {
+
+    public static void main(String[] args) {
+
+        // Criando parametro que recebera a String do HackerRank
+        Scanner sc=new Scanner(System.in);
+        // Passando para uma String
+        String palindrome = sc.next();
+        // Vamos inverter a String e armazenar o resultado em outra string
+        String palindromeInvertida = new StringBuilder(palindrome).  reverse().toString();
+
+        // vamos comparar a string invertida com a string recebida 
+        if(palindrome.equalsIgnoreCase(palindromeInvertida)){
+            System.out.println("Yes");
+        }else{
+            System.out.println("No");
+        }
+
+        
+    }
+}
