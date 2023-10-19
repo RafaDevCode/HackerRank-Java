@@ -1,0 +1,41 @@
+/* Para este desafio, o teste não diferencia maiúsculas de minúsculas. Por exemplo, os anagramas de CAT são CAT, ACT, tac, TCA, aTC e CtA.
+   Para o teste deve se criar um booleano se e forem anagramas que não diferenciam maiúsculas de minúsculas, retorne True. Caso contrário, retorne False. */
+
+
+
+    static boolean isAnagram(String a, String b) {
+        a = a.replaceAll("\\s", "").toLowerCase();
+        b = b.replaceAll("\\s", "").toLowerCase();
+
+        if (a.length() != b.length()) {
+            return false;
+        } else {
+            int[] count = new int[26];
+
+            for (char c : a.toCharArray()) {
+                count[c - 'a']++;
+            }
+            for (char c : b.toCharArray()) {
+                count[c - 'a']--;
+            }
+
+            for (int i : count) {
+                if (i != 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String a = scan.next();
+        String b = scan.next();
+        scan.close();
+        boolean ret = isAnagram(a, b);
+        System.out.println((ret) ? "Anagrams" : "Not Anagrams");
+    }
+}
+
+  
